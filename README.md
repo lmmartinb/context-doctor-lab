@@ -11,8 +11,8 @@ que Anthropic describe en
 | Antipatrón plantado | Regla que viola |
 |---|---|
 | Árbol de directorios y lista de dependencias | Derivable del propio repo |
-| Overview de arquitectura de un módulo de 40 líneas | Derivable del propio repo |
-| "NEVER write comments" vs "every function MUST have a docstring" (y dos límites de línea en conflicto) | Reglas duras → criterio |
+| Overview de arquitectura de un módulo de 60 líneas | Derivable del propio repo |
+| "NEVER write comments" vs "every export MUST have JSDoc" (más dos límites de línea y dos reglas de tipos en conflicto) | Reglas duras → criterio |
 | Instrucción de tests repetida tres veces | Repetirte → decirlo una vez |
 | Ejemplos de uso de Grep/Read/Edit | Ejemplos → diseño de interfaces |
 | "Session log" mantenido a mano | Memoria manual → auto-memory |
@@ -27,7 +27,7 @@ debe conservar: es justo lo que un modelo no puede deducir mirando el código.
 ```bash
 git clone https://github.com/lmmartinb/context-doctor-lab
 cd context-doctor-lab
-python -m pytest -q   # verde
+npm test              # verde (Node 24+, sin dependencias de runtime)
 claude                # y dentro: /doctor
 ```
 
