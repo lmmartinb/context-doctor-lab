@@ -1,0 +1,5 @@
+{
+  "indent": 2,
+  "rootKeys": ["tasks", "nextId"],
+  "taskKeys": ["id", "title", "state"]
+}

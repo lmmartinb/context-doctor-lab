@@ -11,6 +11,9 @@ context-doctor-lab/
 │   └── cli.ts        # command line interface (add, move, list)
 ├── tests/
 │   └── store.test.ts # node:test suite
+├── scripts/
+│   ├── sync-check.ts     # downstream sync contract check
+│   └── sync-contract.json
 ├── package.json
 ├── tsconfig.json
 ├── CLAUDE.md
@@ -84,7 +87,10 @@ When editing, prefer Edit over Write. Example:
 - `new TaskStore()` without a path is intentionally ephemeral (used by the
   tests). Do not "fix" it by adding a default path.
 - `tasks.json` is written with 2-space indent on purpose: a downstream sync
-  script diffs it line by line.
+  script diffs it line by line. `npm run sync-check` verifies that contract.
+  It is not covered by `npm test`: the unit tests pass whatever the shape of a
+  task record is. Changing that shape means updating the sync in the same
+  commit and bumping `scripts/sync-contract.json`.
 - The CLI exit codes are part of the contract: 0 on success, 1 on usage error.
 - No TypeScript parameter properties (`constructor(private x)`): Node's
   strip-only mode does not support them and the code must run without a build.
